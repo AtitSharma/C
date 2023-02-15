@@ -1,15 +1,17 @@
 #include<stdio.h>
 #include <string.h>
-#define MAX 15
+int MAX =15;
 
 
 
 void AddBook(){
+   
     char book_name[MAX];
-    fgets(book_name ,MAX,stdin);
+  //  fgets(book_name ,MAX,stdin);
+  scanf("%s",&book_name);
 
     FILE *file;
-    file=fopen("pro.dat","a");
+    file=fopen("pro.dat","w");
     // fputs(book_name,file);
     fwrite(book_name, sizeof(char), strlen(book_name), file);
     fclose(file);
@@ -58,7 +60,7 @@ int main(){
     //     printf("%s \n",content);
     //     }
     // }
-    printf("These are the book available in our Library");
+    printf("These are the book available in our Library\n");
     PrintData();
     printf("*********************************************\n");
     printf("\n");
@@ -70,6 +72,7 @@ int main(){
     int User_input=0;
     scanf("%d \n",&User_input);
     if(User_input==1){
+        printf("What is you book name");
         AddBook();
         return (1);
     }
