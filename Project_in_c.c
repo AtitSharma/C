@@ -4,14 +4,13 @@ int MAX =15;
 
 
 
-void AddBook(){
-   
+void AddBook(){   
     char book_name[MAX];
   //  fgets(book_name ,MAX,stdin);
   scanf("%s",&book_name);
 
     FILE *file;
-    file=fopen("pro.dat","w");
+    file=fopen("pro.dat","a");
     // fputs(book_name,file);
     fwrite(book_name, sizeof(char), strlen(book_name), file);
     fclose(file);
@@ -71,8 +70,8 @@ int main(){
     printf("Enter 2 for Taking Book \n");
     int User_input=0;
     scanf("%d \n",&User_input);
-    if(User_input==1){
-        printf("What is you book name");
+    printf("What is you book name");
+    if(User_input==1){   
         AddBook();
         return (1);
     }
